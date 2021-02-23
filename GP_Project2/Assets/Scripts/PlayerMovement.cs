@@ -17,6 +17,8 @@ public class PlayerMovement : MonoBehaviour
         currentTime = startingTime;
     }
 
+   
+    
     // Update is called once per frame
     void Update()
     {
@@ -32,6 +34,22 @@ public class PlayerMovement : MonoBehaviour
         {
             currentTime = 0f;
         }
-       
+        if (currentTime >= 59)
+        {
+            currentTime = 59f;
+        }
+
+    }
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Time"))
+        {
+            Destroy(other.gameObject);
+            currentTime += 5;
+        }
+        if (other.gameObject.CompareTag("PowerUp"))
+        {
+            speed = 24f;
+        }
     }
 }
