@@ -51,5 +51,10 @@ public class PlayerMovement : MonoBehaviour
         {
             speed = 24f;
         }
+        if (other.gameObject.CompareTag("Enemy"))
+        {
+            speed = 12f;
+
+        }
     }
 }
