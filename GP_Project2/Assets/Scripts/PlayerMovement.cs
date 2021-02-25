@@ -50,11 +50,12 @@ public class PlayerMovement : MonoBehaviour
         if (other.gameObject.CompareTag("PowerUp"))
         {
             speed = 24f;
+            Destroy(other.gameObject);
         }
         if (other.gameObject.CompareTag("Enemy"))
         {
-            speed = 12f;
-
+            Debug.Log("Hit!");
         }
+        
     }
 }
