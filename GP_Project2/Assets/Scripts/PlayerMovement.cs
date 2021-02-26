@@ -11,10 +11,13 @@ public class PlayerMovement : MonoBehaviour
     public float currentTime = 0f;
     public float startingTime = 12f;
     public Text timer;
+    public Transform teleportDestination;
+    public bool Hit;
 
     void Start()
     {
         currentTime = startingTime;
+        Hit = false;
     }
 
    
@@ -40,6 +43,26 @@ public class PlayerMovement : MonoBehaviour
         {
             currentTime = 59f;
         }
+        if (Hit == true)
+        {
+            transform.position = teleportDestination.position;
+        }
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            Hit = false;
+        }
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            Hit = false;
+        }
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            Hit = false;
+        }
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            Hit = false;
+        }
 
     }
     void OnTriggerEnter(Collider other)
@@ -59,6 +82,7 @@ public class PlayerMovement : MonoBehaviour
             Debug.Log("Hit!");
             speed = 12f;
             currentTime -= 5;
+            Hit = true;
         }
         if (other.gameObject.CompareTag("Diamond"))
         {
