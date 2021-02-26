@@ -33,6 +33,8 @@ public class PlayerMovement : MonoBehaviour
         if (currentTime <= 0)
         {
             currentTime = 0f;
+            SceneManager.LoadScene("LossEnd");
+            Cursor.lockState = CursorLockMode.None;
         }
         if (currentTime >= 59)
         {
@@ -55,7 +57,14 @@ public class PlayerMovement : MonoBehaviour
         if (other.gameObject.CompareTag("Enemy"))
         {
             Debug.Log("Hit!");
+            speed = 12f;
+            currentTime -= 5;
         }
-        
+        if (other.gameObject.CompareTag("Diamond"))
+        {
+            SceneManager.LoadScene("WinEnd");
+            Cursor.lockState = CursorLockMode.None;
+        }
+
     }
 }
