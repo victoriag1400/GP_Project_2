@@ -182,12 +182,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Movement: WASD keys
 
-    Pause: P key
+    Pause/Unpause: P key
 
-    [add more info here
-
-    if
-    needed]'
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: 79459efec17a4d00a321bdcc27bbc385, type: 2}
@@ -261,12 +258,12 @@ MonoBehaviour:
   m_margin: {x: 63.010937, y: 0, z: -38.879528, w: 40.332157}
   m_textInfo:
     textComponent: {fileID: 24615922}
-    characterCount: 63
+    characterCount: 41
     spriteCount: 0
-    spaceCount: 11
-    wordCount: 12
+    spaceCount: 6
+    wordCount: 7
     linkCount: 0
-    lineCount: 4
+    lineCount: 2
     pageCount: 1
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
