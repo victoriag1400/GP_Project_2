@@ -8,6 +8,7 @@ TagManager:
   - PowerUp
   - Enemy
   - Diamond
+  - Dangerzone
   layers:
   - Default
   - TransparentFX

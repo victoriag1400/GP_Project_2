@@ -13,15 +13,19 @@ public class PlayerMovement : MonoBehaviour
     public Text timer;
     public Transform teleportDestination;
     public bool Hit;
+    public bool Diamond;
+    public bool Player;
 
     void Start()
     {
         currentTime = startingTime;
         Hit = false;
+        Diamond = true;
+        Player = false;
     }
 
-   
-    
+
+
     // Update is called once per frame
     void Update()
     {
@@ -31,7 +35,7 @@ public class PlayerMovement : MonoBehaviour
         Vector3 move = transform.right * x + transform.forward * z;
         controller.Move(move * speed * Time.deltaTime);
 
-         currentTime -= 1 * Time.deltaTime;
+        currentTime -= 1 * Time.deltaTime;
         timer.text = currentTime.ToString("0");
         if (currentTime <= 0)
         {
@@ -83,11 +87,18 @@ public class PlayerMovement : MonoBehaviour
             speed = 12f;
             currentTime -= 5;
             Hit = true;
+            Diamond = true;
+            Player = false;
         }
         if (other.gameObject.CompareTag("Diamond"))
         {
             SceneManager.LoadScene("WinEnd");
             Cursor.lockState = CursorLockMode.None;
+        }
+        if (other.gameObject.CompareTag("Dangerzone"))
+        {
+            Diamond = false;
+            Player = true;
         }
 
     }
