@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class EndScreen : MonoBehaviour
+public class WinScreen : MonoBehaviour
 {
-    public AudioSource LoseMenuMusic;
+    public AudioSource WinMenuMusic;
     public void PlayGame()
     {
         SceneManager.LoadScene("Menu");

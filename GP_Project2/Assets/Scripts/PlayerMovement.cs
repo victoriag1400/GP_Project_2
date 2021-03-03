@@ -6,6 +6,11 @@ using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public AudioSource BackgroundMusic;
+    public AudioClip timerSound;
+    public AudioClip speedSound;
+    public AudioClip hitSound;
+    public AudioClip alarmSound;
     public CharacterController controller;
     public float speed = 12f;
     public float currentTime = 0f;
@@ -15,6 +20,7 @@ public class PlayerMovement : MonoBehaviour
     public bool Hit;
     public bool Diamond;
     public bool Player;
+    AudioSource audioSource;
 
     void Start()
     {
@@ -22,6 +28,8 @@ public class PlayerMovement : MonoBehaviour
         Hit = false;
         Diamond = true;
         Player = false;
+        BackgroundMusic.loop = true;
+        audioSource = GetComponent<AudioSource>();
     }
 
 
@@ -75,11 +83,13 @@ public class PlayerMovement : MonoBehaviour
         {
             Destroy(other.gameObject);
             currentTime += 5;
+            PlaySound(timerSound);
         }
         if (other.gameObject.CompareTag("PowerUp"))
         {
             speed = 24f;
             Destroy(other.gameObject);
+            PlaySound(speedSound);
         }
         if (other.gameObject.CompareTag("Enemy"))
         {
@@ -89,6 +99,7 @@ public class PlayerMovement : MonoBehaviour
             Hit = true;
             Diamond = true;
             Player = false;
+            PlaySound(hitSound);
         }
         if (other.gameObject.CompareTag("Diamond"))
         {
@@ -99,7 +110,12 @@ public class PlayerMovement : MonoBehaviour
         {
             Diamond = false;
             Player = true;
+            PlaySound(alarmSound);
         }
 
+    }
+    public void PlaySound(AudioClip clip)
+    {
+        audioSource.PlayOneShot(clip);
     }
 }
