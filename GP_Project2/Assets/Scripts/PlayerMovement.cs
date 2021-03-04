@@ -12,7 +12,7 @@ public class PlayerMovement : MonoBehaviour
     public AudioClip hitSound;
     public AudioClip alarmSound;
     public CharacterController controller;
-    public float speed = 12f;
+    public float speed = 8f;
     public float currentTime = 0f;
     public float startingTime = 12f;
     public Text timer;
@@ -51,6 +51,7 @@ public class PlayerMovement : MonoBehaviour
             SceneManager.LoadScene("LossEnd");
             Cursor.lockState = CursorLockMode.None;
         }
+       
         if (currentTime >= 59)
         {
             currentTime = 59f;
@@ -87,14 +88,14 @@ public class PlayerMovement : MonoBehaviour
         }
         if (other.gameObject.CompareTag("PowerUp"))
         {
-            speed = 24f;
+            speed = 16f;
             Destroy(other.gameObject);
             PlaySound(speedSound);
         }
         if (other.gameObject.CompareTag("Enemy"))
         {
             Debug.Log("Hit!");
-            speed = 12f;
+            speed = 8f;
             currentTime -= 5;
             Hit = true;
             Diamond = true;
