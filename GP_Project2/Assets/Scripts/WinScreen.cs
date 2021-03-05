@@ -6,7 +6,16 @@ using UnityEngine.SceneManagement;
 public class WinScreen : MonoBehaviour
 {
     public AudioSource WinMenuMusic;
-    public void PlayGame()
+
+    void Update()
+    {
+        if (Input.GetKey("escape"))
+        {
+            Application.Quit();
+            Debug.Log("QUIT");
+        }
+    }
+public void PlayGame()
     {
         SceneManager.LoadScene("Menu");
     }
