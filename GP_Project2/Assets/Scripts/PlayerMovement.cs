@@ -93,7 +93,7 @@ public class PlayerMovement : MonoBehaviour
         }
         if (other.gameObject.CompareTag("PowerUp"))
         {
-            speed = 16f;
+            speed = 12f;
             Destroy(other.gameObject);
             PlaySound(speedSound);
         }
